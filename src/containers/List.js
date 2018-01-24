@@ -15,17 +15,19 @@ class List extends Component {
             </Item>
         })
     }
-    render (){
-
-    if(!this.props.data)
-        return <span>No data</span>
-      return (<ul>
-          {this.list(this.props.data)}
-        </ul>)
+    render ()
+    {
+        if(!this.props.data)
+            return <span>No data</span>
+        else
+            return (<ul>
+            {this.list(this.props.data)}
+            </ul>)
     }
 }
 
-const mapDispatchToProps = (state) => {
+const mapStateToProps = (state) => {
+
     return {
         data : state.data
     }
@@ -62,8 +64,8 @@ class Item extends Component {
             return null;
     }
     render (){
-      var expandedDiv = this.getExpandedText(this.props.children);
-      return (<div style={{backgroundColor : 'yellow'}}>
+        var expandedDiv = this.getExpandedText(this.props.children);
+        return (<div style={{backgroundColor : 'yellow'}}>
             <li>           
                 <button onClick={this.display.bind(this)}>{this.state.name} </button>
                 <b>{this.props.name}<hr/>{ expandedDiv }</b>
@@ -72,4 +74,4 @@ class Item extends Component {
     }
 }
 
-export default connect(mapDispatchToProps)(List)
+export default connect(mapStateToProps)(List)
