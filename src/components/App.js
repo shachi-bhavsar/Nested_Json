@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import List from '../containers/List';
-import data from '../reducers/data'
-
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-    }
-  }
 
   render() {
     return (
